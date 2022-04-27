@@ -1,14 +1,10 @@
-# CS571-Workshop-01: Bank Management App
-## Rich MongoDB Documents Exercise
-Please find below an Express application that connects to a local MongoDB instance, each document has the following structure for `banks` collection:
+# CS571 - Workshop 01
+## MongoDB Rich Documents Workshop
+Please find below a schema structure for a bank application, each document has the following structure for `banks` collection:
 ```JavaScript
 {
     "_id":1,
     "name: "BOA",
-    "branches": [
-        {"_id":1, "name": "NY"},
-        {"_id":2, "name": "IA"}
-    ],
     "users":[
         {"_id":1, "name": "Michael", "accounts":[
             {"_id":1, "type": "debit", "number": 123, "routing": 123, "amount": 100},
@@ -16,11 +12,26 @@ Please find below an Express application that connects to a local MongoDB instan
     ]
 }
 ```
-Your are responsible on writing code for 6 MongoDB queries within 6 pre-defined routes in `app.js` file:
-1. Add a branch *(level 1)*
-2. Update branch by ID *(level 1)*
-3. Delete branch by ID *(level 1)*
-4. Add a new account to a specific user *(level 2)*
-5. Update an account's number *(level 2)*
-6. Delete an account *(level 2)*
-  
+Create an Express application that connects to a MongoDB instance (local or cloud service), and write code for 6 MongoDB queries within 3 pre-defined routes in `app.js` file:
+1. Add a new account to a specific user
+2. Update an account's balance
+3. Delete an account
+```JavaScript
+// Add a new account to specific user
+// The request body has {"_id":2, "type": "credit", "number": 456, "routing": 456, "amount": 50}
+app.post('/banks/:bank_id/users/:user_id', async (req, res) => {
+    // YOUR QUERY HERE
+})
+
+// Update a account's balance
+// The request body has {"amount": 200}
+app.patch('/banks/:bank_id/users/:user_id/accounts/:account_id', async (req, res) => {
+    // YOUR QUERY HERE  
+})
+
+// Delete a student
+app.delete('/banks/:bank_id/users/:user_id/accounts/:account_id', async (req, res) => {
+    // YOUR QUERY HERE
+})
+```
+*Note: Queries should comply with REST design
