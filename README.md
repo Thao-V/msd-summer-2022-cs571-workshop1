@@ -19,18 +19,18 @@ Create an Express application that connects to a MongoDB instance (local or clou
 ```JavaScript
 // Add a new account to specific user
 // The request body has {"_id":2, "type": "credit", "number": 456, "routing": 456, "amount": 50}
-router.post('/banks/:bank_id/users/:user_id', async (req, res) => {
+app.post('/banks/:bank_id/users/:user_id', async (req, res) => {
     // YOUR QUERY HERE
 })
 
 // Update a account's balance
 // The request body has {"amount": 200}
-router.patch('/banks/:bank_id/users/:user_id/accounts/:account_id', async (req, res) => {
+app.patch('/banks/:bank_id/users/:user_id/accounts/:account_id', async (req, res) => {
     // YOUR QUERY HERE  
 })
 
 // Delete a user
-router.delete('/banks/:bank_id/users/:user_id/accounts/:account_id', async (req, res) => {
+app.delete('/banks/:bank_id/users/:user_id/accounts/:account_id', async (req, res) => {
     // YOUR QUERY HERE
 })
 ```
